@@ -6,15 +6,23 @@
 
 int main() 
 {
-	double PUProb = 0.3;
-	std::vector<Band_Details> Bands(100, Band_Details(PUProb));
-	for (int i = 0; i < 100; i++)
+	int numberOfBands = 100;
+	double PUProb = 0.9;
+	std::vector<Band_Details> Bands(numberOfBands, Band_Details(PUProb));
+	for (int i = 0; i < numberOfBands; i++)
 	{
 		Bands[i].randomState();
 	}
 	SecondaryUser Transmittor;
 	SecondaryUser Receiver;
+	Transmittor.scanBands(Bands);
+	Receiver.scanBands(Bands);
+	
+	
+	for (int i = 0; i < numberOfBands; i++)
+	{
 
+	}
 
 }
 

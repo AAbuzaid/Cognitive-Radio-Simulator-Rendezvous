@@ -17,6 +17,11 @@ Band_Details::~Band_Details()
 {
 }
 
+bool Band_Details::empty()
+{
+	return !PUState;
+}
+
 void Band_Details::randomState()
 {
 	PUState = (double(rand()) / double(RAND_MAX)) <= ProbON;
