@@ -7,24 +7,37 @@
 int main() 
 {
 	int numberOfBands = 100;
-	double PUProbON = 0.3;
-	bool symmetric = false;
-	double asymmetricity = 0.5;			// The lower the number, the higher the asymmetricity
+	double PUProbON1 = 0.2;
+	double PUProbON2 = 0.4;
 
-	std::vector<Band_Details> Bands(numberOfBands, Band_Details(PUProbON));
+	bool symmetric = true;
+	double asymmetricity = 0.1;			// The higher the number, the higher the asymmetricity
+
+	std::vector<Band_Details> Bands1(numberOfBands, Band_Details(PUProbON1));
+	std::vector<Band_Details> Bands2(numberOfBands, Band_Details(PUProbON2));
+
 	SecondaryUser Transmittor;
 	SecondaryUser Receiver;
 	for (int i = 0; i < numberOfBands; i++)
 	{
-		Bands[i].randomState();
+		Bands1[i].randomState();
+		Bands2[i].randomState();
+
 	}
-	Transmittor.scanBands(Bands, numberOfBands, symmetric, asymmetricity);
-	Receiver.scanBands(Bands, numberOfBands, symmetric, asymmetricity);
+	Transmittor.scanBands(Bands1, symmetric, asymmetricity);
+	if(symmetric)
+	Receiver.scanBands(Bands1, symmetric, asymmetricity);
+	Receiver.scanBands(Bands2, symmetric, asymmetricity);
 	
 	
 	for (int i = 0; i < Transmittor.emptyBands.size(); i++)
 	{
 		std::cout << Transmittor.emptyBands[i] << " - ";
+		if (i >= Receiver.emptyBands.size())
+		{
+			std::cout << std::endl;
+			continue;
+		}
 		std::cout << Receiver.emptyBands[i] << std::endl;
 	}
 

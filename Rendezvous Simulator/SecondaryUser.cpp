@@ -25,7 +25,7 @@ void SecondaryUser::scanBands(std::vector<Band_Details>& Bands, int numberOfBand
 	{
 		for (int i = 0; i < numberOfBands; i++)
 		{
-			if (Bands[i].empty() && (double(rand())/double(RAND_MAX)) <= asymmetricity)
+			if (Bands[i].empty() && (double(rand())/double(RAND_MAX)) >= asymmetricity)
 				emptyBands.push_back(i);
 		}
 	}
