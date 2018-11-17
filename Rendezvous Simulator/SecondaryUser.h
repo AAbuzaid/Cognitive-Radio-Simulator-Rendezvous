@@ -7,7 +7,7 @@ class SecondaryUser
 public:
 	SecondaryUser();
 	~SecondaryUser();
-	void scanBands(std::vector<Band_Details> &Bands, bool symmetric, double asymmetricity);
+	void scanBands(std::vector<Band_Details> &Bands, int numberOfBands, bool symmetric, double asymmetricity);
 	std::vector<int> emptyBands;
 };
 

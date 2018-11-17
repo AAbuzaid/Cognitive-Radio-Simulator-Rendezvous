@@ -18,8 +18,8 @@ int main()
 	{
 		Bands[i].randomState();
 	}
-	Transmittor.scanBands(Bands, symmetric, asymmetricity);
-	Receiver.scanBands(Bands, symmetric, asymmetricity);
+	Transmittor.scanBands(Bands, numberOfBands, symmetric, asymmetricity);
+	Receiver.scanBands(Bands, numberOfBands, symmetric, asymmetricity);
 	
 	
 	for (int i = 0; i < Transmittor.emptyBands.size(); i++)
